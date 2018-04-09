@@ -1,0 +1,12 @@
+{{~it:info:index}}{{var ag=this.helper.getAirground(info);}}
+<div class="table-item">
+  <span class="table-td">{{=info.depairport}}-{{=info.arrairport}}</span>
+  <span class="table-td">{{?ag}}<i class="ico-airground ico-ag-{{=ag}}"></i>{{?}}{{? (info.oc && info.ocflightno) || info.flightno.substr(0,4) === "CZ81"}}
+    <div class="ocflightdiv tooltip-trigger{{? "'+ lang.lang +'" === "en"}} ocflightdivEn{{?}}" data-tip-class="share-show" data-direction="br" data-share="{{=this.helper.sharecompany(info.oc)}}##{{? info.flightno.substr(0,4) === "CZ81"}}{{=info.flightno}}{{??}}{{=info.oc}}{{=info.ocflightno}}{{?}}">['+ fllang.fl0135 +']</div>{{?}}{{=info.flightno}}
+  </span>
+<span class="table-td short">{{=info.cabin}}</span>
+<span class="table-td short">{{=info.planetypecode}}<span class="planetypeTip"></span></span>
+<span class="table-td">{{=info.flightdate}}</span>
+<span class="table-td">{{?!ag}}{{=info.deptime.substr(0,2)}}:{{=info.deptime.substr(2)}}{{?}}{{=info.depairport}}</span>
+<span class="table-td">{{?!ag}}{{=info.arrtime.substr(0,2)}}:{{=info.arrtime.substr(2)}}{{?}}{{=info.arrairport}}</span>{{var id = this.__getUniqeId();}}<span class="table-td under-line help-box long" id="{{=id}}" content=\'{{=
+                                                                                                                                                               this.helper.createChangeRuleBox(id,it.ordertype=== "202" || it.ordertype === "201" ? it[0]:info,"'+languagePath+ '",it.isMileageExchange,it.inter,it.orderno,it[index],it.ordertype)}}\'>'+ordermanagerInfo.orderDetail001+'</span></div>{{~}}
